@@ -37,4 +37,10 @@ const myFam = [
   }
 ];
 
-Contact.insertMany(myFam);
+Contact.insertMany(myFam)
+  .then(res => {
+    console.log(res)
+  })
+  .catch(e => {
+    console.log(e)
+  })

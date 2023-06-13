@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All Contacts</title>
+  <title>Contact Details</title>
 </head>
 <body>
 
-  <h1>Contacts List</h1>
+  <h1><%= person.name %></h1>
   <ul>
-    <% for(let person of dispContacts) {%>
-      <li><%= person.name %></li>
-    <% } %>
+    <li><%= person.phone %></li>
+    <li><%= person.relationship %></li>
   </ul>
   
 </body>

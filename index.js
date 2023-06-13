@@ -4,7 +4,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const Contact = require('./models/contacts');
 
-// Had to switch between <locahost> and <127.0.0.1>, whichever works
+// Had to switch between <localhost> and <127.0.0.1>, whichever works
 mongoose.connect('mongodb://127.0.0.1:27017/myApp', {useNewUrlParser: true, useUnifiedTopology: true})
   .then(() => {
     console.log('Connection is now OPEN!');
@@ -20,6 +20,12 @@ app.set('view engine', 'ejs');
 app.get('/contacts', async (req,res) => {
   const dispContacts = await Contact.find({});
   res.render('index', { dispContacts });
+})
+
+app.get('/contacts/:person', async (req,res) => {
+  const { id } = req.params;
+  const person = await Contact.findById(id);
+  res.render('details', { person })
 })
 
 app.listen(3000, () => {
